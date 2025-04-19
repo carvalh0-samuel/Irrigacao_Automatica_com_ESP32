@@ -25,8 +25,8 @@ struct Grupo {
 
 // ==== CONFIGURAÇÃO DOS GRUPOS ====
 Grupo grupos[] = {
-  {"Grupo 1 (Capim-açu + Amendoim)", 9, PINO_TEMP_GRUPO1, PINO_UMID_GRUPO1, 25, 32, 52},
-  {"Grupo 2 (Mandioca + Feijão)",    10, PINO_TEMP_GRUPO2, PINO_UMID_GRUPO2, 18, 30, 48},
+  {"Grupo 1 (Capim-acu + Amendoim)", 9, PINO_TEMP_GRUPO1, PINO_UMID_GRUPO1, 25, 30, 52},
+  {"Grupo 2 (Mandioca + Feijao)",    10, PINO_TEMP_GRUPO2, PINO_UMID_GRUPO2, 20, 28, 48},
   {"Grupo 3 (Batata)",               11, PINO_TEMP_GRUPO3, PINO_UMID_GRUPO3, 15, 22, 60}
 };
 
@@ -56,7 +56,7 @@ void setup() {
 
 void loop() {
   if (botaoPressionado()) {
-    Serial.println(">> Botão pressionado - Iniciando irrigação manual");
+    Serial.println(">> Botao pressionado - Iniciando irrigacao manual");
     irrigacaoManual();
   } else {
     for (int i = 0; i < numGrupos; i++) {
@@ -89,9 +89,8 @@ float lerTemperatura(int pinoTemp) {
 
 float lerUmidade(int pinoUmid) {
   int leitura = analogRead(pinoUmid);
-  return map(leitura, 1023, 0, 0, 100); // 0% (molhado) a 100% (seco)
+  return map(leitura, 0, 1023, 100, 0);  // 100% (seco) a 0% (molhado)
 }
-
 // ==== LÓGICA DE IRRIGAÇÃO AUTOMÁTICA ====
 void controlarIrrigacao(Grupo grupo, float temp, float umid) {
   // A irrigação será acionada se a temperatura for maior que o mínimo ou a umidade for menor que o mínimo
@@ -101,9 +100,9 @@ void controlarIrrigacao(Grupo grupo, float temp, float umid) {
 
   Serial.print(grupo.nome);
   if (precisaIrrigar) {
-    Serial.println(" - Temp > mínima ou umidade < mínima → Irrigando...");
+    Serial.println(" - Temp > minima ou umidade < minima | Irrigando...");
   } else {
-    Serial.println(" - Não precisa irrigar.");
+    Serial.println(" - Nao precisa irrigar.");
   }
 }
 
@@ -121,5 +120,5 @@ void irrigacaoManual() {
     digitalWrite(grupos[i].pinoIrrigacao, LOW);
   }
 
-  Serial.println(">> Irrigação manual finalizada");
+  Serial.println(">> Irrigacao manual finalizada");
 }
