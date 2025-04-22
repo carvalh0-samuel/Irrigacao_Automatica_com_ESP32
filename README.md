@@ -3,4 +3,4 @@ Este projeto automatiza a irrigação de três grupos de plantas, utilizando sen
 
 link do Projeto no Tinkercad: https://www.tinkercad.com/things/lcnjxmGM0bt-trabalhoiot?sharecode=-TLdss7GQk_40DcfDZXLK7kFEuZRxNQ64j-uSBTIKb8
 
-![plot](./Imagem/Trabalho_IOT.png)
+![plot](./Imagem/Esquema_Tinkercad.png)
