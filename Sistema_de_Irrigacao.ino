@@ -1,6 +1,6 @@
 // ==== DEFINIÇÕES ====
 #define PINO_BOTAO 7
-#define TEMPO_IRRIGACAO_MANUAL 10000  // 10 segundos
+#define TEMPO_IRRIGACAO_MANUAL 15000  // 15 segundos
 
 // Pinos dos sensores de temperatura e umidade
 #define PINO_TEMP_GRUPO1 A0
@@ -51,27 +51,28 @@ void setup() {
   // Configura o botão com resistor pull-up interno
   pinMode(PINO_BOTAO, INPUT_PULLUP);
 
-  Serial.println("Sistema iniciado. Aguardando leitura de sensores...");
+  Serial.println(" Sistema de irrigacao iniciado. Aguardando leitura de sensores...");
 }
 
 void loop() {
   if (botaoPressionado()) {
-    Serial.println(">> Botao pressionado - Iniciando irrigacao manual");
+    Serial.println(" Botao pressionado! Iniciando irrigacao manual de todos os grupos...");
     irrigacaoManual();
   } else {
     for (int i = 0; i < numGrupos; i++) {
       float temperatura = lerTemperatura(grupos[i].pinoTemp);
       float umidade = lerUmidade(grupos[i].pinoUmid);
 
-      Serial.print(grupos[i].nome); 
-      Serial.print(" - Temp: "); Serial.print(temperatura); Serial.print(" °C | ");
-      Serial.print("Umid: "); Serial.print(umidade); Serial.println(" %");
+      Serial.println("========================================");
+      Serial.println(grupos[i].nome);
+      Serial.print("Temperatura: "); Serial.print(temperatura); Serial.println(" °C");
+      Serial.print("Umidade: "); Serial.print(umidade); Serial.println(" %");
 
       controlarIrrigacao(grupos[i], temperatura, umidade);
     }
   }
 
-  delay(5000); // Aguarda 5 segundos para próxima leitura
+  delay(13000); // Aguarda 13 segundos para próxima leitura
 }
 
 // ==== DETECÇÃO DO BOTÃO ====
@@ -89,36 +90,37 @@ float lerTemperatura(int pinoTemp) {
 
 float lerUmidade(int pinoUmid) {
   int leitura = analogRead(pinoUmid);
-  return map(leitura, 0, 1023, 100, 0);  // 100% (seco) a 0% (molhado)
+  return map(leitura, 0, 1023, 0, 100);  // 0% seco, 100% molhado
 }
+
 // ==== LÓGICA DE IRRIGAÇÃO AUTOMÁTICA ====
 void controlarIrrigacao(Grupo grupo, float temp, float umid) {
-  // A irrigação será acionada se a temperatura for maior que o mínimo ou a umidade for menor que o mínimo
   bool precisaIrrigar = (temp > grupo.tempMin) || (umid < grupo.umidadeMin);
 
   digitalWrite(grupo.pinoIrrigacao, precisaIrrigar ? HIGH : LOW);
 
-  Serial.print(grupo.nome);
   if (precisaIrrigar) {
-    Serial.println(" - Temp > minima ou umidade < minima | Irrigando...");
+    Serial.println(" Condicoes fora do ideal. Iniciando irrigacao.");
+    Serial.print("Criterio: ");
+    if (temp > grupo.tempMin) Serial.print("Temperatura acima do minimo. ");
+    if (umid < grupo.umidadeMin) Serial.print("Umidade abaixo do ideal.");
+    Serial.println();
   } else {
-    Serial.println(" - Nao precisa irrigar.");
+    Serial.println(" Condicoes adequadas. Irrigacao nao necessaria.");
   }
 }
 
 // ==== IRRIGAÇÃO MANUAL ====
 void irrigacaoManual() {
-  // Aciona a irrigação de todos os grupos
   for (int i = 0; i < numGrupos; i++) {
     digitalWrite(grupos[i].pinoIrrigacao, HIGH);
   }
 
-  delay(TEMPO_IRRIGACAO_MANUAL);  // Irriga por 10 segundos
+  delay(TEMPO_IRRIGACAO_MANUAL);
 
-  // Desliga a irrigação de todos os grupos
   for (int i = 0; i < numGrupos; i++) {
     digitalWrite(grupos[i].pinoIrrigacao, LOW);
   }
 
-  Serial.println(">> Irrigacao manual finalizada");
+  Serial.println("Irrigacao manual concluida. Todos os sistemas desligados.");
 }
