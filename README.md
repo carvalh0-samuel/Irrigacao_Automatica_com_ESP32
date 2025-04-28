@@ -1,16 +1,16 @@
 💧 Irrigação Automática com ESP32, ThingsBoard e WhatsApp (Simulação com Potenciômetros)
 
-Este projeto apresenta um sistema de irrigação automática inteligente utilizando um ESP32, com simulação de sensores via potenciômetros, integração com o ThingsBoard para monitoramento remoto e envio de alertas via WhatsApp, utilizando a API do CallMeBot.
+- Este projeto apresenta um sistema de irrigação automática inteligente utilizando um ESP32, com simulação de sensores via potenciômetros, integração com o ThingsBoard para monitoramento remoto e envio de alertas via WhatsApp, utilizando a API do CallMeBot.
 
 🧪 Simulação com Potenciômetros
 
 Cada grupo de irrigação possui dois potenciômetros:
 
-Um simula a temperatura
+- Um simula a temperatura
 
-Outro simula a umidade do solo
+- Outro simula a umidade do solo
 
-Isso permite testar a lógica de controle sem a necessidade de sensores reais.
+- Isso permite testar a lógica de controle sem a necessidade de sensores reais.
 
 🔧 Funcionalidades:
 
