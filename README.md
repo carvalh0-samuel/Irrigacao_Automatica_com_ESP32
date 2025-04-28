@@ -5,13 +5,18 @@ Este projeto implementa um sistema de irrigação automática inteligente utiliz
 🔧 Funcionalidades:
 
 📶 Conexão Wi-Fi automática e reconexão em caso de queda;
+
 🌡️ Leitura de temperatura e umidade do solo para até 3 grupos de sensores;
+
 💡 Lógica de irrigação automática com base em faixas ideais de temperatura e umidade;
+
 🔘 Botão físico para irrigação manual temporizada (10 segundos);
+
 📈 Envio periódico de dados para o ThingsBoard em formato JSON;
+
 📲 Envio de alertas via WhatsApp sempre que a irrigação automática for ativada.
 
-⚙️ Componentes Utilizados
+⚙️ Componentes Utilizados:
 
 - ESP32
 - Sensores analógicos de temperatura e umidade (1 por grupo)
