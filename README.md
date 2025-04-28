@@ -1,42 +1,54 @@
-💧 Irrigação Automática com ESP32, ThingsBoard e WhatsApp
+💧 Irrigação Automática com ESP32, ThingsBoard e WhatsApp (Simulação com Potenciômetros)
 
-Este projeto implementa um sistema de irrigação automática inteligente utilizando um ESP32, com integração à plataforma ThingsBoard para monitoramento remoto e envio de notificações via WhatsApp (CallMeBot API).
+Este projeto apresenta um sistema de irrigação automática inteligente utilizando um ESP32, com simulação de sensores via potenciômetros, integração com o ThingsBoard para monitoramento remoto e envio de alertas via WhatsApp, utilizando a API do CallMeBot.
 
-🔧 Funcionalidades:
+🧪 Simulação com Potenciômetros
 
-📶 Conexão Wi-Fi automática e reconexão em caso de queda;
+Cada grupo de irrigação possui dois potenciômetros:
 
-🌡️ Leitura de temperatura e umidade do solo para até 3 grupos de sensores;
+Um simula a temperatura
 
-💡 Lógica de irrigação automática com base em faixas ideais de temperatura e umidade;
+Outro simula a umidade do solo
 
-🔘 Botão físico para irrigação manual temporizada (10 segundos);
+Isso permite testar a lógica de controle sem a necessidade de sensores reais.
 
-📈 Envio periódico de dados para o ThingsBoard em formato JSON;
+🔧 Funcionalidades
+📶 Conexão automática à rede Wi-Fi e reconexão automática;
 
-📲 Envio de alertas via WhatsApp sempre que a irrigação automática for ativada.
+🌡️ Leitura de temperatura e umidade simuladas para até 3 grupos;
 
-⚙️ Componentes Utilizados:
+🤖 Controle automático da irrigação com base em limites configuráveis;
 
-- ESP32
-- Sensores analógicos de temperatura e umidade (1 por grupo)
-- Relés ou atuadores para controle de irrigação
-- Botão físico
+🔘 Botão físico para ativar irrigação manual por 10 segundos;
 
-Conexão com:
+📈 Envio de dados para o ThingsBoard (plataforma IoT);
 
-- ThingsBoard
-- CallMeBot WhatsApp API
+📲 Notificações no WhatsApp sempre que a irrigação automática é ativada.
 
-📤 Telemetria Enviada para ThingsBoard:
+⚙️ Componentes Utilizados
+ESP32
 
-- temp_1, temp_2, temp_3 → temperaturas por grupo
-- umid_1, umid_2, umid_3 → umidades por grupo
+6 potenciômetros (3 para temperatura, 3 para umidade)
+
+3 saídas de controle (simulando bombas/relés)
+
+1 botão físico
+
+Integração com:
+
+ThingsBoard
+
+CallMeBot WhatsApp API
+
+📤 Dados Enviados ao ThingsBoard
+temp_1, temp_2, temp_3 → temperaturas simuladas (via potenciômetro)
+
+umid_1, umid_2, umid_3 → umidades simuladas (via potenciômetro)
 
 🚨 Exemplo de Notificação WhatsApp:
 
 - Grupo 2: IRRIGACAO ON (T=29.3°C U=45.2%)
 
 link do Projeto no Wokwi: https://wokwi.com/projects/429318669164524545
-
+* Utilizando potenciometro no lugar dos sensores para exemplo.
 ![plot](./Imagem/ESP32.png)
