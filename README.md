@@ -12,7 +12,8 @@ Outro simula a umidade do solo
 
 Isso permite testar a lógica de controle sem a necessidade de sensores reais.
 
-🔧 Funcionalidades
+🔧 Funcionalidades:
+
 📶 Conexão automática à rede Wi-Fi e reconexão automática;
 
 🌡️ Leitura de temperatura e umidade simuladas para até 3 grupos;
@@ -25,25 +26,22 @@ Isso permite testar a lógica de controle sem a necessidade de sensores reais.
 
 📲 Notificações no WhatsApp sempre que a irrigação automática é ativada.
 
-⚙️ Componentes Utilizados
-ESP32
+⚙️ Componentes Utilizados:
 
-6 potenciômetros (3 para temperatura, 3 para umidade)
-
-3 saídas de controle (simulando bombas/relés)
-
-1 botão físico
+- ESP32
+- 6 potenciômetros (3 para temperatura, 3 para umidade)
+- 3 saídas de controle (simulando bombas/relés)
+- 1 botão físico
 
 Integração com:
 
-ThingsBoard
+- ThingsBoard
+- CallMeBot WhatsApp API
 
-CallMeBot WhatsApp API
+📤 Dados Enviados ao ThingsBoard:
 
-📤 Dados Enviados ao ThingsBoard
-temp_1, temp_2, temp_3 → temperaturas simuladas (via potenciômetro)
-
-umid_1, umid_2, umid_3 → umidades simuladas (via potenciômetro)
+- temp_1, temp_2, temp_3 → temperaturas simuladas (via potenciômetro)
+- umid_1, umid_2, umid_3 → umidades simuladas (via potenciômetro)
 
 🚨 Exemplo de Notificação WhatsApp:
 
