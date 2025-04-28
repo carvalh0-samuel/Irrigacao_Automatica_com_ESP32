@@ -39,4 +39,4 @@ Conexão com:
 
 link do Projeto no Wokwi: https://wokwi.com/projects/429318669164524545
 
-![plot](./Imagem/Esquema_Tinkercad.png)
+![plot](./Imagem/ESP32.png)
