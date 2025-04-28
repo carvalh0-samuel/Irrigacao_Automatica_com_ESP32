@@ -1,0 +1,107 @@
+{
+  "version": 1,
+  "author": "Samuel",
+  "editor": "wokwi",
+  "parts": [
+    { "type": "wokwi-esp32-devkit-v1", "id": "esp", "top": -10, "left": 50, "attrs": {} },
+    {
+      "type": "wokwi-pushbutton",
+      "id": "btn",
+      "top": 100,
+      "left": -20,
+      "attrs": { "label": "Botão Manual" }
+    },
+    {
+      "type": "wokwi-led",
+      "id": "led1",
+      "top": 34.8,
+      "left": 224.6,
+      "attrs": { "color": "purple", "label": "Irrig 1" }
+    },
+    {
+      "type": "wokwi-led",
+      "id": "led2",
+      "top": 92.4,
+      "left": 243.8,
+      "attrs": { "color": "cyan", "label": "Irrig 2" }
+    },
+    {
+      "type": "wokwi-led",
+      "id": "led3",
+      "top": 159.6,
+      "left": 234.2,
+      "attrs": { "color": "yellow", "label": "Irrig 3" }
+    },
+    {
+      "type": "wokwi-potentiometer",
+      "id": "pot1",
+      "top": -100,
+      "left": -50,
+      "attrs": { "label": "Temp Grupo 1" }
+    },
+    {
+      "type": "wokwi-potentiometer",
+      "id": "pot2",
+      "top": -100,
+      "left": 50,
+      "attrs": { "label": "Umid Grupo 1" }
+    },
+    {
+      "type": "wokwi-potentiometer",
+      "id": "pot3",
+      "top": -180,
+      "left": -50,
+      "attrs": { "label": "Temp Grupo 2" }
+    },
+    {
+      "type": "wokwi-potentiometer",
+      "id": "pot4",
+      "top": -180,
+      "left": 50,
+      "attrs": { "label": "Umid Grupo 2" }
+    },
+    {
+      "type": "wokwi-potentiometer",
+      "id": "pot5",
+      "top": -260,
+      "left": -50,
+      "attrs": { "label": "Temp Grupo 3" }
+    },
+    {
+      "type": "wokwi-potentiometer",
+      "id": "pot6",
+      "top": -260,
+      "left": 50,
+      "attrs": { "label": "Umid Grupo 3" }
+    }
+  ],
+  "connections": [
+    [ "btn:1.l", "esp:GND.1", "black", [ "v0" ] ],
+    [ "btn:2.r", "esp:D13", "green", [ "v0" ] ],
+    [ "led1:A", "esp:D14", "green", [ "h0" ] ],
+    [ "led2:A", "esp:D27", "green", [ "h0" ] ],
+    [ "led3:A", "esp:D26", "green", [ "h0" ] ],
+    [ "led1:C", "esp:GND.2", "black", [ "v0" ] ],
+    [ "led2:C", "esp:GND.2", "black", [ "v0" ] ],
+    [ "led3:C", "esp:GND.2", "black", [ "v0" ] ],
+    [ "pot1:GND", "esp:GND.1", "black", [ "v0" ] ],
+    [ "pot1:VCC", "esp:3V3", "red", [ "v0" ] ],
+    [ "pot1:SIG", "esp:VP", "blue", [ "v0" ] ],
+    [ "pot2:GND", "esp:GND.1", "black", [ "v0" ] ],
+    [ "pot2:VCC", "esp:3V3", "red", [ "v0" ] ],
+    [ "pot2:SIG", "esp:VN", "blue", [ "v0" ] ],
+    [ "pot3:GND", "esp:GND.1", "black", [ "v0" ] ],
+    [ "pot3:VCC", "esp:3V3", "red", [ "v0" ] ],
+    [ "pot3:SIG", "esp:D34", "blue", [ "v0" ] ],
+    [ "pot4:GND", "esp:GND.1", "black", [ "v0" ] ],
+    [ "pot4:VCC", "esp:3V3", "red", [ "v0" ] ],
+    [ "pot4:SIG", "esp:D35", "blue", [ "v0" ] ],
+    [ "pot5:GND", "esp:GND.1", "black", [ "v0" ] ],
+    [ "pot5:VCC", "esp:3V3", "red", [ "v0" ] ],
+    [ "pot5:SIG", "esp:D32", "blue", [ "v0" ] ],
+    [ "pot6:GND", "esp:GND.1", "black", [ "v0" ] ],
+    [ "pot6:VCC", "esp:3V3", "red", [ "v0" ] ],
+    [ "pot6:SIG", "esp:D33", "blue", [ "v0" ] ]
+  ],
+  "dependencies": {}
+}
