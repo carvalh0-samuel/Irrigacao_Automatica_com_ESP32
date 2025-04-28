@@ -28,12 +28,12 @@ Conexão com:
 - ThingsBoard
 - CallMeBot WhatsApp API
 
-📤 Telemetria Enviada para ThingsBoard
+📤 Telemetria Enviada para ThingsBoard:
 
 - temp_1, temp_2, temp_3 → temperaturas por grupo
 - umid_1, umid_2, umid_3 → umidades por grupo
 
-🚨 Exemplo de Notificação WhatsApp
+🚨 Exemplo de Notificação WhatsApp:
 
 - Grupo 2: IRRIGACAO ON (T=29.3°C U=45.2%)
 
