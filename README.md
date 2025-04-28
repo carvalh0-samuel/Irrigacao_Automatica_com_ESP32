@@ -48,5 +48,5 @@ Integração com:
 - Grupo 2: IRRIGACAO ON (T=29.3°C U=45.2%)
 
 link do Projeto no Wokwi: https://wokwi.com/projects/429318669164524545
-* Utilizando potenciometro no lugar dos sensores para exemplo.
+
 ![plot](./Imagem/ESP32.png)
