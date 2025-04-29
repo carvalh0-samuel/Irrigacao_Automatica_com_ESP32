@@ -32,6 +32,7 @@ Cada grupo de irrigação possui dois potenciômetros:
 - 6 potenciômetros (3 para temperatura, 3 para umidade)
 - 3 saídas de controle (simulando bombas/relés)
 - 1 botão físico
+- 1 resistor de 10MΩ
 
 Integração com:
 
