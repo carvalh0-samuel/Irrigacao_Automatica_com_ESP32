@@ -49,4 +49,4 @@ Integração com:
 
 link do Projeto no Wokwi: https://wokwi.com/projects/429318669164524545
 
-![plot](./Imagem/ESP32.png)
+![plot](./Imagens/ESP32.png)
