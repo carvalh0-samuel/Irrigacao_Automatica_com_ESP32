@@ -17,10 +17,8 @@ const char* WA_API_KEY = "4825915";
 
 // ==== PINOS ESP32 ====
 #define PINO_BOTAO       13
-
 #define PINO_TEMP_GRUPO1 36
 #define PINO_UMID_GRUPO1 39
-
 #define PINO_IRRIG1      14
 
 #define TEMPO_IRRIGACAO_MANUAL 10000  // 10 segundos
@@ -91,7 +89,7 @@ void loop() {
     sendAllToThingsBoard(doc);
   }
 
-  delay(10000);  // Atraso de 10 segundos
+  delay(10000);
 }
 
 void conectarWiFi() {
@@ -170,13 +168,19 @@ float lerUmidade(int p) {
 
 void controlarIrrigacao(Grupo& g, float t, float u) {
   bool irrig = (t > g.tempMin) || (u < g.umidMin);
-  digitalWrite(g.pinoIrrig, irrig ? HIGH : LOW);
   if (irrig) {
-    Serial.println("! Irrigando (condicoes fora do ideal)");
-    String m = String(g.nome) + ": IRRIGACAO ON (T=" + String(t, 1)
-               + "°C U=" + String(u, 1) + "%)";
+    // LIGA por 10 segundos
+    digitalWrite(g.pinoIrrig, HIGH);
+    Serial.println("! Irrigando (condicoes fora do ideal) por 10s");
+    String m = String(g.nome) + ": Irrigação ON (T=" + String(t, 1)
+               + "°C U=" + String(u, 1) + "%) por 10s";
     sendWhatsApp(m);
+    delay(10000);
+    // DESLIGA após 10s
+    digitalWrite(g.pinoIrrig, LOW);
   } else {
+    // Sem irrigação
+    digitalWrite(g.pinoIrrig, LOW);
     Serial.println("OK: sem irrigacao");
   }
 }
