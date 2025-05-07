@@ -10,8 +10,6 @@ Cada grupo de irrigação possui dois potenciômetros:
 
 - Outro simula a umidade do solo
 
-- Isso permite testar a lógica de controle sem a necessidade de sensores reais.
-
 🔧 Funcionalidades:
 
 📶 Conexão automática à rede Wi-Fi e reconexão automática;
@@ -29,8 +27,8 @@ Cada grupo de irrigação possui dois potenciômetros:
 ⚙️ Componentes Utilizados:
 
 - ESP32
-- 6 potenciômetros (3 para temperatura, 3 para umidade)
-- 3 saídas de controle (simulando bombas/relés)
+- 2 potenciômetros (1 para temperatura, 1 para umidade)
+- 1 saídas de controle (simulando bombas/relés)
 - 1 botão físico
 - 1 resistor de 10MΩ
 
@@ -46,7 +44,7 @@ Integração com:
 
 🚨 Exemplo de Notificação WhatsApp:
 
-- Grupo 2: IRRIGACAO ON (T=29.3°C U=45.2%)
+- Grupo 2: IRRIGACAO ON (T=00.0°C U=00.0%)
 
 link do Projeto no Wokwi: https://wokwi.com/projects/429318669164524545
 
