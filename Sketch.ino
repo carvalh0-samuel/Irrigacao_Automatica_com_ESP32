@@ -34,7 +34,6 @@ struct Grupo {
   float umidMax;
 };
 
-// Ajuste aqui os limites de temperatura (°C) e umidade (%) para cada grupo
 Grupo grupos[] = {
   // nome,     pinoIrrig,    pinoTemp,       pinoUmid,       tempMin, tempMax, umidMin, umidMax
   {"Grupo 1", PINO_IRRIG1, PINO_TEMP_GRUPO1, PINO_UMID_GRUPO1, 15.0,    22.0,    50.0,    80.0 }
