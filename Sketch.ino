@@ -8,12 +8,12 @@ const char* password = "";
 
 // ==== CONFIGURAÇÃO ThingsBoard ====
 const char* tbServer = "demo.thingsboard.io";
-const char* tbToken  = "RUMrTQfRUIi8bDxcgqjb";  // seu Access Token
+const char* tbToken  = "";  // seu Access Token
 
 // ==== CONFIGURAÇÃO CallMeBot WhatsApp ====
 const char* waApiUrl   = "https://api.callmebot.com/whatsapp.php";
-const char* WA_PHONE   = "556194547890";
-const char* WA_API_KEY = "4825915";
+const char* WA_PHONE   = ""; // seu número
+const char* WA_API_KEY = ""; // sua API Key
 
 // ==== PINOS ESP32 ====
 #define PINO_BOTAO       13
