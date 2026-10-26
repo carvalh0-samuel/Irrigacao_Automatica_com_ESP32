@@ -48,4 +48,4 @@ Integração com:
 
 link do Projeto no Wokwi: https://wokwi.com/projects/429318669164524545
 
-![plot](./Imagens/ESP32.png)
+<img src="./Imagens/ESP32.png" alt="Tela Principal" width="600" />
